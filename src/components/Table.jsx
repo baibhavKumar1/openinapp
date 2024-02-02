@@ -50,23 +50,26 @@ const Table = ({ data }) => {
 
   return (
     <div>
-      {data && (
-        <table>
+      {data && 
+        <>
+        <p className="text-3xl">Uploads</p>
+        <table className="bg-gray-200 p-2 rounded-xl w-[80%] m-auto mt-4 border-separate border-spacing-y-4 className='overflow-x-scroll overflow-y-auto'">
           <thead>
             <tr>
-              {Object.keys(data[0]).map((key) => (
-                <th key={key}>{key}</th>
-              ))}
-              <th>Show tag</th>
+              <th>Sr No.</th>
+              <th>Links</th>
+              <th>Prefix</th>
+              <th>Add Tags</th>
+              <th>Selected Tags</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="m-2">
             {data.map((row, index) => (
-              <tr key={index}>
-                <td>{row.id}</td>
-                <td><a href={`www.${row.links}`}>{row.links}</a></td>
-                <td>{row.prefix}</td>
-                <td className="border border-gray-300 p-2">
+              <tr key={index} className="bg-white m-2">
+                <td className="p-2">{row.id}</td>
+                <td ><a href={`www.${row.links}`}>{row.links}</a></td>
+                <td >{row.prefix}</td>
+                <td className="p-2">
                   <select
                     value=""
                     onChange={(event) => handleSelectChange(event, index)}
@@ -76,24 +79,24 @@ const Table = ({ data }) => {
                       Select an option
                     </option>
                     {optionsArray[index]?.availableOptions.map((option) => (
-                      <option key={option} value={option}>
+                      <option key={option} value={option} className="rounded-xl">
                         {option}
                       </option>
                     ))}
                   </select>
                 </td>
-                <td className="border border-gray-300 p-2">
+                <td className="p-2">
                   {optionsArray[index]?.selectedOptions.length > 0 && (
                     <div className="space-x-2">
                       {optionsArray[index].selectedOptions.map((selectedOption) => (
                         <div
                           key={selectedOption}
-                          className="bg-blue-500 text-white px-2 py-1 rounded-md inline-flex items-center"
+                          className="bg-indigo-500 text-white px-2 py-1 rounded-md inline-flex items-center"
                         >
                           {selectedOption}
                           <button
                             onClick={() => handleRemoveOption(selectedOption, index)}
-                            className="ml-2 text-red-500 hover:text-red-700 focus:outline-none"
+                            className="ml-2 text-white  focus:outline-none"
                           >
                             &#10005;
                           </button>
@@ -106,7 +109,8 @@ const Table = ({ data }) => {
             ))}
           </tbody>
         </table>
-      )}
+        </>
+      }
     </div>
   );
 };

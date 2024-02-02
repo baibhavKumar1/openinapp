@@ -3,11 +3,13 @@ import { FaBell, FaCalendarDays, FaGear } from "react-icons/fa6";
 import { HiClipboardList } from "react-icons/hi";
 import { TbFileInvoice } from "react-icons/tb";
 import { MdDashboard, MdInsertChart } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 const Sidebar = () => {
+  const navigate = useNavigate();
   return (
-    <div className='w-1/6 border-2 h-full py-10 space-y-8 sm:hidden'>
+    <div className='w-1/6 h-full py-10 space-y-8 sm:hidden bg-white'>
       <div className='flex gap-4 justify-center'>
-      <img src={image} alt='image'/>
+      <img src={image} alt='image' onClick={()=>navigate('/')}/>
       <p className='text-3xl'>Base</p>
       </div>
       <div className='w-4/5 m-auto space-y-8'>
