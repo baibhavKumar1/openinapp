@@ -2,15 +2,15 @@
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
-import excel from './assets/Microsoft_Excel-Logo.wine.svg'
+import excel from '../assets/Microsoft_Excel-Logo.wine.svg'
 import { FaXmark } from 'react-icons/fa6';
 const Drop = ({setData}) => {
   const [filename, setFilename] = useState()
 
   const onDrop = useCallback((acceptedFiles) => {
-    console.log(acceptedFiles)
+    
     let z = acceptedFiles.map((file) => file.path)
-    console.log(z)
+    
     setFilename(z[0])
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
@@ -21,18 +21,17 @@ const Drop = ({setData}) => {
         const sheetName= workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
         const parsedData= XLSX.utils.sheet_to_json(sheet)
-        // Process the workbook data as needed
-        console.log(workbook)
         setData(parsedData)
       };
 
       reader.readAsArrayBuffer(file);
     });
-  }, []);
+  }, [setData]);
   const remove = () => {
     setFilename(null)
+    setData()
   }
-  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps } = useDropzone({ onDrop ,noClick:true});
 
 
   return (

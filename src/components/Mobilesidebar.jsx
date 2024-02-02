@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import image from './assets/Subtract.svg'
+import image from '../assets/Subtract.svg'
 import { FaBell, FaCalendarDays, FaGear,FaXmark } from "react-icons/fa6";
 import { HiClipboardList } from "react-icons/hi";
 import { TbFileInvoice } from "react-icons/tb";
 import { MdDashboard, MdInsertChart } from "react-icons/md";
-const Trialsidebar = ({ isOpen, closeMenu }) => {
+const Mobilesidebar = ({ isOpen, closeMenu }) => {
   return (
     <div
       className={`fixed sm:block hidden top-0 left-0 h-full w-[90%] rounded-r-xl bg-gray-100 text-black transform ${
@@ -55,4 +55,4 @@ const Trialsidebar = ({ isOpen, closeMenu }) => {
   );
 };
 
-export default Trialsidebar;
+export default Mobilesidebar;

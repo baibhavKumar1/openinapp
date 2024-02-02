@@ -1,4 +1,4 @@
-import Login from './Login';
+import Login from './components/Login';
 import image from './assets/Left side.svg'
 import image2 from './assets/Logo.svg'
 import { FaGithub,FaTwitter,FaDiscord,FaLinkedinIn } from "react-icons/fa";

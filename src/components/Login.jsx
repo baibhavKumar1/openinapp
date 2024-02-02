@@ -1,7 +1,9 @@
 import {FcGoogle} from 'react-icons/fc'
 
 import { FaGithub,FaTwitter,FaDiscord,FaLinkedinIn,FaApple } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+    const navigate = useNavigate()
     return (
         <div className="flex flex-col sm:space-y-2 space-y-4 sm:justify-around h-full">
           <div>
@@ -24,7 +26,7 @@ const Login = () => {
                 <p className="text-lg">Password</p>
                 <input type="password" className="rounded-xl p-2 pl-4 w-full bg-gray-100"/>
                 <p className="text-indigo-500">Forgot Password?</p>
-                <button className="bg-indigo-500 p-2 rounded-xl text-white">Sign In</button>
+                <button className="bg-indigo-500 p-2 rounded-xl text-white" onClick={()=>navigate('/upload') }>Sign In</button>
             </div>
             <div className="flex sm:flex-col m-auto text-center sm:space-y-4">
                 <p>Don&apos;t have an account?</p>

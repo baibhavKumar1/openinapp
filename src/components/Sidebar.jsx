@@ -1,4 +1,4 @@
-import image from './assets/Subtract.svg'
+import image from '../assets/Subtract.svg'
 import { FaBell, FaCalendarDays, FaGear } from "react-icons/fa6";
 import { HiClipboardList } from "react-icons/hi";
 import { TbFileInvoice } from "react-icons/tb";
